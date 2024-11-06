@@ -129,7 +129,9 @@ input[type="number"]:hover {
 
 .gif-container img {
     display: none;
-    width: 200px; /* Set size to medium */
-    height: 200px; /* Square shape */
+    width: auto; /* Retain original size */
+    height: auto; /* Retain original size */
+    max-width: 100%; /* Ensure GIFs don't overflow */
+    max-height: 300px; /* Limit max height */
     border-radius: 8px;
 }
