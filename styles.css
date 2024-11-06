@@ -21,10 +21,10 @@ body {
 /* Container styling */
 .container {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 40px; /* Increased padding */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 500px; /* Increased width */
     text-align: center;
     position: relative;
     margin-bottom: 20px;
@@ -35,7 +35,7 @@ body {
 /* Heading styling */
 h2 {
     color: #333;
-    font-size: 1.5em;
+    font-size: 1.8em; /* Increased font size */
 }
 
 /* Label styling */
@@ -55,12 +55,12 @@ label:hover {
 /* Input fields styling */
 input {
     width: 80%; /* Medium width for responsiveness */
-    max-width: 250px; /* Control maximum width */
-    padding: 12px;
+    max-width: 400px; /* Increased max-width */
+    padding: 15px; /* Increased padding */
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased font size */
     box-sizing: border-box;
 }
 
@@ -72,13 +72,13 @@ input[type="number"]:hover {
 
 /* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 12px 25px;
+    padding: 14px 30px; /* Increased padding */
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em; /* Increased font size */
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -100,9 +100,9 @@ input[type="number"]:hover {
 
 /* Result and messages */
 #result {
-    margin-top: 15px;
+    margin-top: 20px; /* Increased margin for results */
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.3em; /* Increased font size */
     transition: color 0.3s ease;
 }
 
@@ -133,23 +133,14 @@ input[type="number"]:hover {
 
 .gif-container img {
     display: none;
-    width: 50%; /* Adjust size of the GIF */
-    max-width: 150px; /* Limit maximum size of the GIF */
+    width: 200px; /* Increased width */
+    height: 200px; /* Set height to make it square */
     border-radius: 8px;
 }
 
-#belowGif {
-    display: none;
-}
-
-#aboveGif {
-    display: none;
-}
-
-/* Increased GIF size */
 #belowGif, #aboveGif, #whistleGif {
-    width: 150px;  /* Increase width */
-    height: 150px; /* Increase height */
+    width: 200px;  /* Increased width */
+    height: 200px; /* Increased height to make it square */
 }
 
 /* Small screen adjustments */
