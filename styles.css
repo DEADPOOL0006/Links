@@ -19,6 +19,7 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
+    margin-bottom: 20px; /* Extra margin to prevent GIF clipping on small screens */
 }
 
 h2 {
@@ -29,7 +30,7 @@ label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold; /* This will make the labels bold */
+    font-weight: bold;
 }
 
 input {
@@ -97,6 +98,7 @@ input {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    padding-bottom: 20px; /* Adds padding at the bottom to prevent GIF clipping */
 }
 
 .gif-container img {
@@ -124,5 +126,9 @@ input {
 @media (max-width: 767px) {
     .container {
         width: 350px; /* Medium size for mobile devices */
+    }
+
+    .gif-container img {
+        width: 80%; /* Make GIFs larger on smaller screens */
     }
 }
