@@ -99,7 +99,7 @@ input {
 
 .gif-container img {
     display: none;
-    width: 100%;
-    max-width: 300px;
+    width: 60%; /* Adjust width to make GIF medium-sized */
+    max-width: 300px; /* Ensure it's not too large */
     border-radius: 8px;
 }
