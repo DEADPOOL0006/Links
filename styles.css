@@ -4,17 +4,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensures that the body takes at least the full viewport height */
+    height: 100vh;
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow-y: auto; /* Enables scrolling for the entire page */
+    overflow: hidden;
 }
 
 /* Enable scrolling for mobile screens */
 @media (max-width: 768px) {
     body {
-        overflow-y: auto; /* Enable vertical scrolling for mobile devices */
+        overflow-y: auto;
     }
 }
 
@@ -27,26 +27,23 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
-    margin-bottom: 20px; /* Added margin for space at the bottom */
 }
 
-/* Heading styling */
 h2 {
     color: #333;
 }
 
-/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold; /* Bold labels */
+    font-weight: bold;
 }
 
 /* Input fields styling */
 input {
-    width: 80%; /* Medium width for responsiveness */
-    max-width: 250px; /* Control maximum width */
+    width: 80%;
+    max-width: 250px;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -66,12 +63,12 @@ input {
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(0); /* Initial position */
+    transform: translateY(0);
 }
 
 .calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px); /* Lift the button */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .calculate-btn {
@@ -115,23 +112,11 @@ input {
     justify-content: center;
 }
 
+/* Responsive GIFs */
 .gif-container img {
-    display: none;
-    width: 50%; /* Adjust size of the GIF */
-    max-width: 150px; /* Limit maximum size of the GIF */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 8px;
-}
-
-#belowGif {
-    display: none;
-}
-
-#aboveGif {
-    display: none;
-}
-
-/* Increased GIF size */
-#belowGif, #aboveGif, #whistleGif {
-    width: 210px;  /* Increase width */
-    height: 170px; /* Increase height */
 }
