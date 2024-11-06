@@ -76,15 +76,13 @@ input {
     font-size: 1.2em;
 }
 .gif-container {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    height: 200px;
 }
 .gif-container img {
     display: none;
-    width: 70%;
-    max-width: 200px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 8px;
 }
