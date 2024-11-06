@@ -1,17 +1,20 @@
-/* Base styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
+    margin: 0;
     background-color: #ffffff;
-    overflow: hidden; /* Prevent scroll by default */
+    transition: background 0.5s ease;
 }
 
-/* Main container */
+.background {
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
+}
+
 .container {
     background-color: #ffffff;
     padding: 20px;
@@ -22,7 +25,6 @@ body {
     position: relative;
 }
 
-/* Styles for headings and input labels */
 h2 {
     color: #333;
 }
@@ -42,7 +44,6 @@ input {
     border-radius: 5px;
 }
 
-/* Button styles */
 .calculate-btn, .reset-btn {
     padding: 15px 25px;
     border: none;
@@ -62,6 +63,11 @@ input {
 
 .reset-btn {
     background-color: #f44336;
+}
+
+.calculate-btn:hover, .reset-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 #result {
@@ -102,26 +108,9 @@ input {
     border-radius: 8px;
 }
 
-/* Mobile-specific styles for scrolling */
-@media (max-width: 767px) {
+/* Media query to enable scroll only on mobile devices */
+@media (max-width: 768px) {
     body {
-        height: auto;
-        overflow-y: auto; /* Enable scroll on mobile */
-    }
-
-    .container {
-        width: 90%;
-        max-height: 90vh; /* Adjust to fit within the viewport */
-    }
-}
-
-/* Disable scrolling for larger screens */
-@media (min-width: 768px) {
-    body {
-        overflow: hidden; /* Prevent scroll on larger screens */
-    }
-
-    .container {
-        width: 500px; /* Adjust width for desktop */
+        overflow-y: scroll;
     }
 }
