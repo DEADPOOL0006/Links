@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -7,14 +8,17 @@ body {
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
+    overflow: hidden; /* Hides overflow on larger screens */
 }
 
-.background {
-    width: 100%;
-    overflow-y: auto;
-    height: 100%;
+/* Enable scrolling for mobile screens */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto; /* Enable vertical scrolling for mobile devices */
+    }
 }
 
+/* Container styling */
 .container {
     background-color: #ffffff;
     padding: 20px;
@@ -33,19 +37,23 @@ label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold;
+    font-weight: bold; /* Bold labels */
 }
 
+/* Input fields styling */
 input {
-    width: 100%;
-    padding: 8px;
+    width: 80%; /* Medium width for responsiveness */
+    max-width: 250px; /* Control maximum width */
+    padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1em;
 }
 
+/* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 15px 25px;
+    padding: 12px 25px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -55,6 +63,12 @@ input {
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0); /* Initial position */
+}
+
+.calculate-btn:hover, .reset-btn:hover {
+    transform: translateY(-5px); /* Lift the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
 
 .calculate-btn {
@@ -65,11 +79,7 @@ input {
     background-color: #f44336;
 }
 
-.calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
+/* Result and messages */
 #result {
     margin-top: 15px;
     font-weight: bold;
@@ -95,6 +105,7 @@ input {
     font-size: 1.2em;
 }
 
+/* GIF container styling */
 .gif-container {
     margin-top: 20px;
     display: flex;
@@ -103,14 +114,15 @@ input {
 
 .gif-container img {
     display: none;
-    width: 50%;
-    max-width: 150px;
+    width: 50%; /* Adjust size of the GIF */
+    max-width: 150px; /* Limit maximum size of the GIF */
     border-radius: 8px;
 }
 
-/* Media query to enable scroll only on mobile devices */
-@media (max-width: 768px) {
-    body {
-        overflow-y: scroll;
-    }
+#belowGif {
+    display: none;
+}
+
+#aboveGif {
+    display: none;
 }
