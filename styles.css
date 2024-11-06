@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Overlay background */
+    overflow: hidden; /* Prevent scrolling */
     transition: background 0.5s ease;
 }
 
@@ -17,7 +18,7 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
-    z-index: 10; /* Ensure it stays on top of the overlay */
+    z-index: 10;
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -95,14 +96,12 @@ input {
 
 .gif-container {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;  /* Centers the content horizontally */
-    align-items: center;      /* Centers the content vertically */
+    text-align: center;
 }
 
 .gif-container img {
     display: none;
-    width: 300px; /* Keeps the GIF size as is */
-    max-width: 100%; /* Ensures it's responsive */
+    width: 100%;
+    max-width: 300px;
     border-radius: 8px;
 }
