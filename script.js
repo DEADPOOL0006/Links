@@ -44,3 +44,28 @@ function calculateAttendance() {
     }
 }
 
+function resetFields() {
+    // Reset input fields
+    document.getElementById("lectureAttendance").value = "";
+    document.getElementById("tutorialAttendance").value = "";
+    document.getElementById("practicalAttendance").value = "";
+    document.getElementById("skillAttendance").value = "";
+
+    // Reset result and message
+    const result = document.getElementById("result");
+    const message = document.getElementById("message");
+    const belowGif = document.getElementById("belowGif");
+    const aboveGif = document.getElementById("aboveGif");
+    const whistleGif = document.getElementById("whistleGif");
+
+    result.innerHTML = "";
+    message.innerHTML = "";
+
+    // Hide gifs
+    belowGif.style.display = "none";
+    aboveGif.style.display = "none";
+    whistleGif.style.display = "none";
+}
+
+// Add event listener for Reset Fields button
+document.getElementById("resetButton").addEventListener("click", resetFields);
