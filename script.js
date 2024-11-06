@@ -45,5 +45,4 @@ function resetFields() {
     document.getElementById("message").innerHTML = ""; 
     document.getElementById("belowGif").style.display = "none"; 
     document.getElementById("aboveGif").style.display = "none"; 
-    document.body.style.backgroundColor = "#ffffff";
 }
