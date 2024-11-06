@@ -129,28 +129,7 @@ input[type="number"]:hover {
 
 .gif-container img {
     display: none;
-    width: 300px; /* Increased width */
-    height: 300px; /* Set height to maintain square shape */
+    width: 200px; /* Set size to medium */
+    height: 200px; /* Square shape */
     border-radius: 8px;
-}
-
-#belowGif, #aboveGif, #whistleGif {
-    width: 300px; /* Increased width */
-    height: 300px; /* Increased height to maintain square shape */
-}
-
-/* Small screen adjustments */
-@media (max-width: 480px) {
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 1.3em;
-    }
-
-    input {
-        width: 90%;
-    }
 }
