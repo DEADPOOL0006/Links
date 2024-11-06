@@ -7,8 +7,7 @@ body {
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow: hidden;
-    touch-action: none;
+    /* Remove overflow: hidden to allow container scrolling */
 }
 
 .container {
@@ -19,7 +18,7 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
-    margin-bottom: 20px; /* Extra margin to prevent GIF clipping on small screens */
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -52,13 +51,6 @@ input {
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #4CAF50;
-    transform: translateY(0); 
-}
-
-.calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .calculate-btn {
@@ -98,37 +90,33 @@ input {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    padding-bottom: 20px; /* Adds padding at the bottom to prevent GIF clipping */
+    padding-bottom: 20px;
 }
 
 .gif-container img {
     display: none;
     width: 50%; 
-    max-width: 150px; 
+    max-width: 150px;
     border-radius: 8px;
 }
 
-#belowGif {
-    display: none;
-}
-
-#aboveGif {
-    display: none;
-}
-
-/* Media Queries for responsiveness */
-@media (min-width: 768px) {
-    .container {
-        width: 500px; /* Larger width for laptops and PCs */
-    }
-}
-
+/* Scrollable container for mobile */
 @media (max-width: 767px) {
     .container {
-        width: 350px; /* Medium size for mobile devices */
+        width: 90%;
+        max-height: 90vh; /* Limit height to allow scrolling */
+        overflow-y: auto; /* Enable vertical scroll */
     }
 
     .gif-container img {
-        width: 80%; /* Make GIFs larger on smaller screens */
+        width: 80%; /* Adjust GIF size for mobile */
+    }
+}
+
+/* Larger width for laptops and PCs */
+@media (min-width: 768px) {
+    .container {
+        width: 500px;
+        overflow: visible; /* No scrolling for larger screens */
     }
 }
