@@ -17,8 +17,8 @@ body {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    max-width: 90%; /* Adjusts to screen size on mobile */
+    width: 90%; /* Adjusts to screen size on mobile */
+    max-width: 500px;
     text-align: center;
     position: relative;
     margin-bottom: 20px;
@@ -132,9 +132,26 @@ input[type="number"]:hover {
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .container {
-        padding: 20px;
+        padding: 20px; /* Reduced padding for mobile screens */
     }
-    
+
+    h2 {
+        font-size: 1.5em; /* Slightly smaller heading on mobile */
+    }
+
+    label {
+        font-size: 1em; /* Reduced font size for labels */
+    }
+
+    input {
+        font-size: 1em; /* Smaller font for input fields */
+    }
+
+    .calculate-btn, .reset-btn {
+        padding: 12px 25px;
+        font-size: 1em; /* Smaller buttons for mobile */
+    }
+
     .gif-container img {
         max-width: 90%; /* Fit GIFs within mobile screen width */
         max-height: 150px; /* Reduce height slightly for mobile */
