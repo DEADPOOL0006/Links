@@ -8,6 +8,7 @@ function calculateAttendance() {
     const message = document.getElementById("message");
     const belowGif = document.getElementById("belowGif");
     const aboveGif = document.getElementById("aboveGif");
+    const whistleGif = document.getElementById("whistleGif");
 
     const attendanceValues = [lectureAttendance, tutorialAttendance, practicalAttendance, skillAttendance].filter(value => value !== null);
 
@@ -22,26 +23,23 @@ function calculateAttendance() {
     result.style.color = overallPercentage >= 85 ? "green" : "red";
     result.innerHTML = `<strong>Overall Attendance: ${overallPercentage.toFixed(2)}%</strong>`;
 
-    if (overallPercentage < 85) {
-        message.innerHTML = "<strong>⚠️ MAVA, NUVU CLASSES KI VELLALI!</strong>";
-        message.style.color = "orange";
-        belowGif.style.display = "block";
+    if (overallPercentage >= 90) {
+        message.innerHTML = "<strong>EXCELLENT 🎉</strong>";
+        message.style.color = "blue";
+        belowGif.style.display = "none";
         aboveGif.style.display = "none";
-    } else {
-        message.innerHTML = "<strong>SUPER MAVA 🤩</strong>";
-        message.style.color = "green";
+        whistleGif.style.display = "block";
+    } else if (overallPercentage >= 85) {
+        message.innerHTML = "<strong>Good 🤩</strong>";
+        message.style.color = "blue"; // Changed from green to blue
         belowGif.style.display = "none";
         aboveGif.style.display = "block";
+        whistleGif.style.display = "none";
+    } else {
+        message.innerHTML = "<strong>Mava, Nuvu Classes Ki Vellali 😡</strong>";
+        message.style.color = "blue"; // Changed from orange to blue
+        belowGif.style.display = "block";
+        aboveGif.style.display = "none";
+        whistleGif.style.display = "none";
     }
-}
-
-function resetFields() {
-    document.getElementById("lectureAttendance").value = "";
-    document.getElementById("tutorialAttendance").value = "";
-    document.getElementById("practicalAttendance").value = "";
-    document.getElementById("skillAttendance").value = "";
-    document.getElementById("result").innerText = "";
-    document.getElementById("message").innerHTML = ""; 
-    document.getElementById("belowGif").style.display = "none"; 
-    document.getElementById("aboveGif").style.display = "none"; 
 }
