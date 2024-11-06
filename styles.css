@@ -17,7 +17,7 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
-    z-index: 10; /* Make sure it stays on top of the overlay */
+    z-index: 10; /* Ensure it stays on top of the overlay */
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -95,11 +95,14 @@ input {
 
 .gif-container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;  /* Centers the content horizontally */
+    align-items: center;      /* Centers the content vertically */
 }
 
 .gif-container img {
     display: none;
-    width: 60%; /* Adjust width to make GIF medium-sized */
-    max-width: 300px; /* Ensure it's not too large */
+    width: 300px; /* Keeps the GIF size as is */
+    max-width: 100%; /* Ensures it's responsive */
     border-radius: 8px;
 }
