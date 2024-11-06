@@ -7,8 +7,8 @@ body {
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow: hidden; /* Prevents page from moving */
-    touch-action: none; /* Prevents zooming on mobile */
+    overflow: hidden;
+    touch-action: none;
 }
 
 .container {
@@ -18,18 +18,18 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: center;
-    position: relative; /* Ensures the container stays in the middle */
+    position: relative;
 }
 
 h2 {
     color: #333;
-    margin-bottom: 10px;
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
+    font-weight: bold; /* This will make the labels bold */
 }
 
 input {
@@ -41,31 +41,31 @@ input {
 }
 
 .calculate-btn, .reset-btn {
-    padding: 10px;
+    padding: 15px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
+    font-size: 1.1em;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #4CAF50;
+    transform: translateY(0); 
+}
+
+.calculate-btn:hover, .reset-btn:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .calculate-btn {
     background-color: #4CAF50;
-    transition: background-color 0.3s ease;
-}
-
-.calculate-btn:hover {
-    background-color: #45a049;
 }
 
 .reset-btn {
     background-color: #f44336;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.reset-btn:hover {
-    background-color: #e53935;
 }
 
 #result {
@@ -101,8 +101,8 @@ input {
 
 .gif-container img {
     display: none;
-    width: 50%; /* Adjust size of the GIF */
-    max-width: 150px; /* Limit maximum size of the GIF */
+    width: 50%; 
+    max-width: 150px; 
     border-radius: 8px;
 }
 
@@ -112,4 +112,17 @@ input {
 
 #aboveGif {
     display: none;
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+    .container {
+        width: 500px; /* Larger width for laptops and PCs */
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 350px; /* Medium size for mobile devices */
+    }
 }
