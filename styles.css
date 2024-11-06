@@ -8,6 +8,7 @@ body {
     background-color: #ffffff;
     transition: background 0.5s ease;
     overflow: hidden; /* Prevents page from moving */
+    touch-action: none; /* Prevents zooming on mobile */
 }
 
 .container {
