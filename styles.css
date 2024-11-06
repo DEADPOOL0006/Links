@@ -5,22 +5,19 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay background */
-    overflow: hidden; /* Prevent scrolling */
+    background-color: #ffffff;
     transition: background 0.5s ease;
+    overflow: hidden; /* Prevents page from moving */
 }
 
 .container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: center;
-    position: relative;
-    z-index: 10;
-    opacity: 1;
-    transition: opacity 0.3s ease;
+    position: relative; /* Ensures the container stays in the middle */
 }
 
 h2 {
@@ -96,12 +93,21 @@ input {
 
 .gif-container {
     margin-top: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .gif-container img {
     display: none;
-    width: 100%;
-    max-width: 300px;
+    width: 50%; /* Adjust size of the GIF */
+    max-width: 150px; /* Limit maximum size of the GIF */
     border-radius: 8px;
+}
+
+#belowGif {
+    display: none;
+}
+
+#aboveGif {
+    display: none;
 }
