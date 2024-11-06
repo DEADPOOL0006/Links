@@ -2,14 +2,14 @@ function calculateAttendance() {
     const lectureAttendance = parseFloat(document.getElementById("lectureAttendance").value) || null;
     const tutorialAttendance = parseFloat(document.getElementById("tutorialAttendance").value) || null;
     const practicalAttendance = parseFloat(document.getElementById("practicalAttendance").value) || null;
-    const seminarAttendance = parseFloat(document.getElementById("seminarAttendance").value) || null;
+    const skillAttendance = parseFloat(document.getElementById("skillAttendance").value) || null;
 
     const result = document.getElementById("result");
     const message = document.getElementById("message");
     const belowGif = document.getElementById("belowGif");
     const aboveGif = document.getElementById("aboveGif");
 
-    const attendanceValues = [lectureAttendance, tutorialAttendance, practicalAttendance, seminarAttendance].filter(value => value !== null);
+    const attendanceValues = [lectureAttendance, tutorialAttendance, practicalAttendance, skillAttendance].filter(value => value !== null);
 
     if (attendanceValues.length === 0) {
         result.innerHTML = "<strong>Please enter at least one attendance percentage.</strong>";
@@ -40,7 +40,7 @@ function resetFields() {
     document.getElementById("lectureAttendance").value = "";
     document.getElementById("tutorialAttendance").value = "";
     document.getElementById("practicalAttendance").value = "";
-    document.getElementById("seminarAttendance").value = "";
+    document.getElementById("skillAttendance").value = "";
     document.getElementById("result").innerText = "";
     document.getElementById("message").innerHTML = ""; 
     document.getElementById("belowGif").style.display = "none"; 
