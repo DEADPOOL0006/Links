@@ -43,3 +43,4 @@ function calculateAttendance() {
         whistleGif.style.display = "none";
     }
 }
+
