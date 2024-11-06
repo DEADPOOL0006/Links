@@ -6,7 +6,7 @@ body {
     align-items: center;
     min-height: 100vh; /* Ensures that the body takes at least the full viewport height */
     margin: 0;
-    background-color: #ffffff;
+    background-color: #f4f4f9; /* Light background color for the body */
     transition: background 0.5s ease;
     overflow-y: auto; /* Enables scrolling for the entire page */
 }
@@ -27,12 +27,15 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
-    margin-bottom: 20px; /* Added margin for space at the bottom */
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Border around the box */
+    background-color: #e0f7fa; /* Soft light blue background for the container */
 }
 
 /* Heading styling */
 h2 {
     color: #333;
+    font-size: 1.5em;
 }
 
 /* Label styling */
@@ -41,6 +44,12 @@ label {
     margin: 10px 0 5px;
     color: #555;
     font-weight: bold; /* Bold labels */
+    transition: color 0.3s ease;
+}
+
+/* Change text color on hover */
+label:hover {
+    color: #007bff; /* Color when hovering (blue) */
 }
 
 /* Input fields styling */
@@ -52,6 +61,13 @@ input {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Input fields hover effect (for number inputs) */
+input[type="number"]:hover {
+    border-color: #007bff; /* Change border color to blue on hover */
+    background-color: #f0f8ff; /* Light blue background on hover */
 }
 
 /* Button styling */
@@ -75,11 +91,11 @@ input {
 }
 
 .calculate-btn {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Green for Calculate button */
 }
 
 .reset-btn {
-    background-color: #f44336;
+    background-color: #f44336; /* Red for Reset button */
 }
 
 /* Result and messages */
@@ -134,4 +150,20 @@ input {
 #belowGif, #aboveGif, #whistleGif {
     width: 150px;  /* Increase width */
     height: 150px; /* Increase height */
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Full width for smaller screens */
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    input {
+        width: 90%; /* Increase input width for smaller screens */
+    }
 }
