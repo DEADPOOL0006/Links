@@ -1,14 +1,17 @@
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: 100vh; /* Full viewport height */
     background-color: #ffffff;
-    transition: background 0.5s ease;
+    overflow: hidden; /* Prevent scroll by default */
 }
 
+/* Main container */
 .container {
     background-color: #ffffff;
     padding: 20px;
@@ -19,7 +22,7 @@ body {
     position: relative;
 }
 
-/* Add styles for headings and input labels */
+/* Styles for headings and input labels */
 h2 {
     color: #333;
 }
@@ -39,6 +42,7 @@ input {
     border-radius: 5px;
 }
 
+/* Button styles */
 .calculate-btn, .reset-btn {
     padding: 15px 25px;
     border: none;
@@ -98,30 +102,26 @@ input {
     border-radius: 8px;
 }
 
-/* Enable scroll for mobile devices */
+/* Mobile-specific styles for scrolling */
 @media (max-width: 767px) {
     body {
-        height: auto;  /* Adjust height for scrolling */
-        overflow-y: auto;  /* Enable vertical scroll */
+        height: auto;
+        overflow-y: auto; /* Enable scroll on mobile */
     }
 
     .container {
         width: 90%;
-        max-height: 90vh;  /* Set max height to fit content */
-    }
-
-    .gif-container img {
-        width: 80%;
+        max-height: 90vh; /* Adjust to fit within the viewport */
     }
 }
 
-/* Larger width for laptops and PCs, no scroll */
+/* Disable scrolling for larger screens */
 @media (min-width: 768px) {
     body {
-        overflow: hidden;  /* Prevent scrolling */
+        overflow: hidden; /* Prevent scroll on larger screens */
     }
 
     .container {
-        width: 500px;
+        width: 500px; /* Adjust width for desktop */
     }
 }
