@@ -22,7 +22,6 @@ function calculateAttendance() {
     result.style.color = overallPercentage >= 85 ? "green" : "red";
     result.innerHTML = `<strong>Overall Attendance: ${overallPercentage.toFixed(2)}%</strong>`;
 
-    // Show or hide GIFs and messages based on attendance percentage
     if (overallPercentage < 85) {
         message.innerHTML = "<strong>⚠️ MAVA, NUVU CLASSES KI VELLALI!</strong>";
         message.style.color = "orange";
@@ -45,5 +44,4 @@ function resetFields() {
     document.getElementById("message").innerHTML = ""; 
     document.getElementById("belowGif").style.display = "none"; 
     document.getElementById("aboveGif").style.display = "none"; 
-    document.body.style.backgroundColor = "#f4f7fa";
 }
