@@ -7,7 +7,6 @@ body {
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
-    /* Remove overflow: hidden to allow container scrolling */
 }
 
 .container {
@@ -18,9 +17,9 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
-    margin-bottom: 20px;
 }
 
+/* Add styles for headings and input labels */
 h2 {
     color: #333;
 }
@@ -90,33 +89,39 @@ input {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
 }
 
 .gif-container img {
     display: none;
-    width: 50%; 
+    width: 50%;
     max-width: 150px;
     border-radius: 8px;
 }
 
-/* Scrollable container for mobile */
+/* Enable scroll for mobile devices */
 @media (max-width: 767px) {
+    body {
+        height: auto;  /* Adjust height for scrolling */
+        overflow-y: auto;  /* Enable vertical scroll */
+    }
+
     .container {
         width: 90%;
-        max-height: 90vh; /* Limit height to allow scrolling */
-        overflow-y: auto; /* Enable vertical scroll */
+        max-height: 90vh;  /* Set max height to fit content */
     }
 
     .gif-container img {
-        width: 80%; /* Adjust GIF size for mobile */
+        width: 80%;
     }
 }
 
-/* Larger width for laptops and PCs */
+/* Larger width for laptops and PCs, no scroll */
 @media (min-width: 768px) {
+    body {
+        overflow: hidden;  /* Prevent scrolling */
+    }
+
     .container {
         width: 500px;
-        overflow: visible; /* No scrolling for larger screens */
     }
 }
