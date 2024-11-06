@@ -7,6 +7,7 @@ function calculateAttendance() {
     const result = document.getElementById("result");
     const message = document.getElementById("message");
     const belowGif = document.getElementById("belowGif");
+    const mediumGif = document.getElementById("mediumGif");
     const aboveGif = document.getElementById("aboveGif");
     const whistleGif = document.getElementById("whistleGif");
 
@@ -23,49 +24,46 @@ function calculateAttendance() {
     result.style.color = overallPercentage >= 85 ? "green" : "red";
     result.innerHTML = `<strong>Overall Attendance: ${overallPercentage.toFixed(2)}%</strong>`;
 
+    // Show relevant GIF based on attendance percentage
+    belowGif.style.display = "none";
+    mediumGif.style.display = "none";
+    aboveGif.style.display = "none";
+    whistleGif.style.display = "none";
+
     if (overallPercentage >= 90) {
-        message.innerHTML = "<strong>EXCELLENT 🎉</strong>";
+        message.innerHTML = "<strong>Thaggedele💥</strong>";
         message.style.color = "blue";
-        belowGif.style.display = "none";
-        aboveGif.style.display = "none";
         whistleGif.style.display = "block";
     } else if (overallPercentage >= 85) {
-        message.innerHTML = "<strong>Good 🤩</strong>";
-        message.style.color = "blue"; // Changed from green to blue
-        belowGif.style.display = "none";
+        message.innerHTML = "<strong>I am Safe 😅</strong>";
+        message.style.color = "blue";
         aboveGif.style.display = "block";
-        whistleGif.style.display = "none";
+    } else if (overallPercentage >= 60) {
+        message.innerHTML = "<strong>Attendance Endi Tage Laga Undi</strong>";
+        message.style.color = "blue";  // Changed to blue
+        mediumGif.style.display = "block";
     } else {
         message.innerHTML = "<strong>Mava, Nuvu Classes Ki Vellali 😡</strong>";
-        message.style.color = "blue"; // Changed from orange to blue
+        message.style.color = "blue";  // Changed to blue
         belowGif.style.display = "block";
-        aboveGif.style.display = "none";
-        whistleGif.style.display = "none";
     }
 }
 
 function resetFields() {
-    // Reset input fields
-    document.getElementById("lectureAttendance").value = "";
-    document.getElementById("tutorialAttendance").value = "";
-    document.getElementById("practicalAttendance").value = "";
-    document.getElementById("skillAttendance").value = "";
+    document.getElementById("lectureAttendance").value = '';
+    document.getElementById("tutorialAttendance").value = '';
+    document.getElementById("practicalAttendance").value = '';
+    document.getElementById("skillAttendance").value = '';
+    document.getElementById("result").innerHTML = '';
+    document.getElementById("message").innerHTML = '';
 
-    // Reset result and message
-    const result = document.getElementById("result");
-    const message = document.getElementById("message");
     const belowGif = document.getElementById("belowGif");
+    const mediumGif = document.getElementById("mediumGif");
     const aboveGif = document.getElementById("aboveGif");
     const whistleGif = document.getElementById("whistleGif");
 
-    result.innerHTML = "";
-    message.innerHTML = "";
-
-    // Hide gifs
     belowGif.style.display = "none";
+    mediumGif.style.display = "none";
     aboveGif.style.display = "none";
     whistleGif.style.display = "none";
 }
-
-// Add event listener for Reset Fields button
-document.getElementById("resetButton").addEventListener("click", resetFields);
