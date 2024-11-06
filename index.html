@@ -1,45 +1,73 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L-T-P-S Attendance Calculator</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background">
-        <div class="container">
-            <h2><strong>L-T-P-S Attendance Calculator</strong></h2>
-            <p><strong>Input attendance details for overall calculation.</strong></p>
+    <div class="container">
+        <h2>L-T-P-S Attendance Calculator</h2>
+        <p>Input attendance details for calculation.</p>
 
-            <!-- Input Fields -->
-            <label for="lectureAttendance"><strong>Lecture Attendance %:</strong></label>
-            <input type="number" id="lectureAttendance" placeholder="Enter attendance for lectures" min="0" max="100">
-            
-            <label for="tutorialAttendance"><strong>Tutorial Attendance %:</strong></label>
-            <input type="number" id="tutorialAttendance" placeholder="Enter attendance for tutorials" min="0" max="100">
+        <!-- Input Fields with Spinner Controls -->
+        <label for="lectureAttendance">Enter attendance for lectures</label>
+        <input type="number" id="lectureAttendance" placeholder="Enter attendance for lectures" min="0" max="100" step="1">
 
-            <label for="practicalAttendance"><strong>Practical Attendance %:</strong></label>
-            <input type="number" id="practicalAttendance" placeholder="Enter attendance for practicals" min="0" max="100">
+        <label for="tutorialAttendance">Enter attendance for tutorials</label>
+        <input type="number" id="tutorialAttendance" placeholder="Enter attendance for tutorials" min="0" max="100" step="1">
 
-            <label for="skillAttendance"><strong>Skill Attendance %:</strong></label>
-            <input type="number" id="skillAttendance" placeholder="Enter attendance for skills" min="0" max="100">
-            
-            <!-- Buttons -->
-            <button class="calculate-btn" onclick="calculateAttendance()">Calculate Overall Attendance</button>
-            <button class="reset-btn" onclick="resetFields()">Reset Fields</button>
-            
-            <p id="result"></p>
-            <p id="message" class="success"></p>
+        <label for="practicalAttendance">Enter attendance for practical</label>
+        <input type="number" id="practicalAttendance" placeholder="Enter attendance for practical" min="0" max="100" step="1">
 
-            <!-- GIFs for Attendance Feedback -->
-            <div class="gif-container">
-                <img id="belowGif" src="https://media2.giphy.com/media/ptntNCl7nwQqk/giphy.gif?cid=6c09b9520rf2s0czmrpzvdba2dh4eewhf746rjip7dv72nf2&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Below 85% GIF">
-                <img id="aboveGif" src="https://media2.giphy.com/media/KTCh8fg6KgoLu/giphy.gif?cid=6c09b9528ced7smbty6nyacrel5me5c3ehvtcq2u1lcg3up9&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Above 85% GIF">
-            </div>
-        </div>
+        <label for="skillAttendance">Enter attendance for skills</label>
+        <input type="number" id="skillAttendance" placeholder="Enter attendance for skills" min="0" max="100" step="1">
+
+        <!-- Buttons -->
+        <button onclick="calculateAttendance()">Calculate Overall Attendance</button>
+        <button onclick="resetFields()">Reset Fields</button>
+
+        <!-- Result Display -->
+        <p id="result"></p>
+        <p id="message"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function calculateAttendance() {
+            const lectureAttendance = parseFloat(document.getElementById("lectureAttendance").value) || null;
+            const tutorialAttendance = parseFloat(document.getElementById("tutorialAttendance").value) || null;
+            const practicalAttendance = parseFloat(document.getElementById("practicalAttendance").value) || null;
+            const skillAttendance = parseFloat(document.getElementById("skillAttendance").value) || null;
+
+            const result = document.getElementById("result");
+            const message = document.getElementById("message");
+
+            const attendanceValues = [lectureAttendance, tutorialAttendance, practicalAttendance, skillAttendance].filter(value => value !== null);
+
+            if (attendanceValues.length === 0) {
+                result.innerHTML = "<strong>Please enter at least one attendance percentage.</strong>";
+                return;
+            }
+
+            const overallPercentage = attendanceValues.reduce((sum, value) => sum + value, 0) / attendanceValues.length;
+
+            result.innerHTML = `<strong>Overall Attendance: ${overallPercentage.toFixed(2)}%</strong>`;
+
+            if (overallPercentage < 85) {
+                message.innerHTML = "<strong>⚠️ MAVA, NUVU CLASSES KI VELLALI!</strong>";
+            } else {
+                message.innerHTML = "<strong>SUPER MAVA 🤩</strong>";
+            }
+        }
+
+        function resetFields() {
+            document.getElementById("lectureAttendance").value = "";
+            document.getElementById("tutorialAttendance").value = "";
+            document.getElementById("practicalAttendance").value = "";
+            document.getElementById("skillAttendance").value = "";
+            document.getElementById("result").innerText = "";
+            document.getElementById("message").innerHTML = ""; 
+        }
+    </script>
 </body>
 </html>
