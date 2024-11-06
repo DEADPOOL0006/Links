@@ -11,14 +11,20 @@ body {
     overflow-y: auto;
 }
 
+/* Enable scrolling for mobile screens */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+}
+
 /* Container styling */
 .container {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Adjusts to screen size on mobile */
-    max-width: 500px;
+    width: 500px;
     text-align: center;
     position: relative;
     margin-bottom: 20px;
@@ -119,41 +125,12 @@ input[type="number"]:hover {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Wrap GIFs on smaller screens */
 }
 
 .gif-container img {
     display: none;
-    max-width: 100%; /* Fit within the container on all screens */
-    max-height: 200px; /* Keeps height consistent */
+    width: 200px; /* Set size to medium */
+    height: 200px; /* Square shape */
     border-radius: 8px;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px; /* Reduced padding for mobile screens */
-    }
-
-    h2 {
-        font-size: 1.5em; /* Slightly smaller heading on mobile */
-    }
-
-    label {
-        font-size: 1em; /* Reduced font size for labels */
-    }
-
-    input {
-        font-size: 1em; /* Smaller font for input fields */
-    }
-
-    .calculate-btn, .reset-btn {
-        padding: 12px 25px;
-        font-size: 1em; /* Smaller buttons for mobile */
-    }
-
-    .gif-container img {
-        max-width: 90%; /* Fit GIFs within mobile screen width */
-        max-height: 150px; /* Reduce height slightly for mobile */
-    }
-}
