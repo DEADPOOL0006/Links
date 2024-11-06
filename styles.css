@@ -4,38 +4,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensures that the body takes at least the full viewport height */
+    min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f9; /* Light background color for the body */
+    background-color: #f4f4f9;
     transition: background 0.5s ease;
-    overflow-y: auto; /* Enables scrolling for the entire page */
+    overflow-y: auto;
 }
 
 /* Enable scrolling for mobile screens */
 @media (max-width: 768px) {
     body {
-        overflow-y: auto; /* Enable vertical scrolling for mobile devices */
+        overflow-y: auto;
     }
 }
 
 /* Container styling */
 .container {
     background-color: #ffffff;
-    padding: 40px; /* Increased padding */
+    padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px; /* Increased width */
+    width: 500px;
     text-align: center;
     position: relative;
     margin-bottom: 20px;
-    border: 1px solid #ccc; /* Border around the box */
-    background-color: #e0f7fa; /* Soft light blue background for the container */
+    border: 1px solid #ccc;
+    background-color: #e0f7fa;
 }
 
 /* Heading styling */
 h2 {
     color: #333;
-    font-size: 1.8em; /* Increased font size */
+    font-size: 1.8em;
 }
 
 /* Label styling */
@@ -43,80 +43,76 @@ label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold; /* Bold labels */
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
 /* Change text color on hover */
 label:hover {
-    color: #007bff; /* Color when hovering (blue) */
+    color: #007bff;
 }
 
 /* Input fields styling */
 input {
-    width: 80%; /* Medium width for responsiveness */
-    max-width: 400px; /* Increased max-width */
-    padding: 15px; /* Increased padding */
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1.2em; /* Increased font size */
+    font-size: 1.2em;
     box-sizing: border-box;
 }
 
-/* Input fields hover effect (for number inputs) */
+/* Input fields hover effect */
 input[type="number"]:hover {
-    border-color: #007bff; /* Change border color to blue on hover */
-    background-color: #f0f8ff; /* Light blue background on hover */
+    border-color: #007bff;
+    background-color: #f0f8ff;
 }
 
 /* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 14px 30px; /* Increased padding */
+    padding: 14px 30px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1.2em; /* Increased font size */
+    font-size: 1.2em;
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(0); /* Initial position */
 }
 
 .calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px); /* Lift the button */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .calculate-btn {
-    background-color: #4CAF50; /* Green for Calculate button */
+    background-color: #4CAF50;
 }
 
 .reset-btn {
-    background-color: #f44336; /* Red for Reset button */
+    background-color: #f44336;
 }
 
 /* Result and messages */
 #result {
-    margin-top: 20px; /* Increased margin for results */
+    margin-top: 20px;
     font-weight: bold;
-    font-size: 1.3em; /* Increased font size */
+    font-size: 1.3em;
     transition: color 0.3s ease;
 }
 
 .warning {
     color: orange;
     font-size: 1.2em;
-    margin-top: 15px;
-    font-weight: bold;
 }
 
 .success {
     color: green;
     font-size: 1.2em;
-    font-weight: bold;
 }
 
 .error {
@@ -133,20 +129,20 @@ input[type="number"]:hover {
 
 .gif-container img {
     display: none;
-    width: 200px; /* Increased width */
-    height: 200px; /* Set height to make it square */
+    width: 300px; /* Increased width */
+    height: 300px; /* Set height to maintain square shape */
     border-radius: 8px;
 }
 
 #belowGif, #aboveGif, #whistleGif {
-    width: 200px;  /* Increased width */
-    height: 200px; /* Increased height to make it square */
+    width: 250px; /* Increased width */
+    height: 250px; /* Increased height to maintain square shape */
 }
 
 /* Small screen adjustments */
 @media (max-width: 480px) {
     .container {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
         padding: 15px;
     }
 
@@ -155,6 +151,6 @@ input[type="number"]:hover {
     }
 
     input {
-        width: 90%; /* Increase input width for smaller screens */
+        width: 90%;
     }
 }
