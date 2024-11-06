@@ -4,11 +4,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Ensures that the body takes at least the full viewport height */
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow: hidden; /* Hides overflow on larger screens */
+    overflow-y: auto; /* Enables scrolling for the entire page */
 }
 
 /* Enable scrolling for mobile screens */
@@ -27,12 +27,15 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
+    margin-bottom: 20px; /* Added margin for space at the bottom */
 }
 
+/* Heading styling */
 h2 {
     color: #333;
 }
 
+/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
@@ -125,4 +128,10 @@ input {
 
 #aboveGif {
     display: none;
+}
+
+/* Increased GIF size */
+#belowGif, #aboveGif, #whistleGif {
+    width: 210px;  /* Increase width */
+    height: 170px; /* Increase height */
 }
