@@ -5,25 +5,33 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay background */
     transition: background 0.5s ease;
 }
+
 .container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     width: 350px;
     text-align: center;
+    position: relative;
+    z-index: 10; /* Make sure it stays on top of the overlay */
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
+
 h2 {
     color: #333;
 }
+
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
 }
+
 input {
     width: 100%;
     padding: 8px;
@@ -31,6 +39,7 @@ input {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
 .calculate-btn, .reset-btn {
     padding: 10px;
     border: none;
@@ -39,47 +48,55 @@ input {
     width: 100%;
     color: white;
 }
+
 .calculate-btn {
     background-color: #4CAF50;
     transition: background-color 0.3s ease;
 }
+
 .calculate-btn:hover {
     background-color: #45a049;
 }
+
 .reset-btn {
     background-color: #f44336;
     margin-top: 10px;
     transition: background-color 0.3s ease;
 }
+
 .reset-btn:hover {
     background-color: #e53935;
 }
+
 #result {
     margin-top: 15px;
     font-weight: bold;
     font-size: 1.1em;
     transition: color 0.3s ease;
 }
+
 .warning {
     color: orange;
     font-size: 1.2em;
     margin-top: 15px;
     font-weight: bold;
 }
+
 .success {
     color: green;
     font-size: 1.2em;
     font-weight: bold;
 }
+
 .error {
     color: red;
     font-size: 1.2em;
 }
+
 .gif-container {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
 }
+
 .gif-container img {
     display: none;
     width: 100%;
