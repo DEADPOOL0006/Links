@@ -4,17 +4,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Ensures that the body takes at least the full viewport height */
     margin: 0;
     background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow: hidden;
+    overflow-y: auto; /* Enables scrolling for the entire page */
 }
 
 /* Enable scrolling for mobile screens */
 @media (max-width: 768px) {
     body {
-        overflow-y: auto;
+        overflow-y: auto; /* Enable vertical scrolling for mobile devices */
     }
 }
 
@@ -27,23 +27,26 @@ body {
     width: 350px;
     text-align: center;
     position: relative;
+    margin-bottom: 20px; /* Added margin for space at the bottom */
 }
 
+/* Heading styling */
 h2 {
     color: #333;
 }
 
+/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold;
+    font-weight: bold; /* Bold labels */
 }
 
 /* Input fields styling */
 input {
-    width: 80%;
-    max-width: 250px;
+    width: 80%; /* Medium width for responsiveness */
+    max-width: 250px; /* Control maximum width */
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -63,12 +66,12 @@ input {
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
+    transform: translateY(0); /* Initial position */
 }
 
 .calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px); /* Lift the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
 
 .calculate-btn {
@@ -110,12 +113,25 @@ input {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 10px;
 }
 
 .gif-container img {
-    width: 100px;
-    height: 100px;
+    display: none;
+    width: 50%; /* Adjust size of the GIF */
+    max-width: 150px; /* Limit maximum size of the GIF */
     border-radius: 8px;
-    object-fit: cover;
+}
+
+#belowGif {
+    display: none;
+}
+
+#aboveGif {
+    display: none;
+}
+
+/* Increased GIF size */
+#belowGif, #aboveGif, #whistleGif {
+    width: 150px;  /* Increase width */
+    height: 150px; /* Increase height */
 }
