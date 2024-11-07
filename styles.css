@@ -81,19 +81,21 @@ input {
     font-size: 1.1em;
     margin-top: 15px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Initial 3D shadow */
     background-color: #f44336;
+    transform: translateY(0); /* Initial position */
+    position: relative;
 }
 
 .reset-btn:hover {
     background-color: #e53935; /* Slightly darker red on hover */
-    transform: translateY(-6px); /* Lift the button */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Larger shadow */
+    transform: translateY(-8px) scale(1.1); /* Lift the button and slightly scale */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
 }
 
 .reset-btn:active {
-    transform: translateY(2px); /* Button "pressed" effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow on click */
+    transform: translateY(4px) scale(1); /* Button pressed down with slight scaling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when clicked */
 }
 
 /* Result Text */
@@ -143,8 +145,8 @@ input {
 /* Show GIFs when result is populated */
 #result:not(:empty) ~ .gif-container img {
     display: block; /* Show GIFs when #result has content */
-    width: 80%; /* Slightly larger width */
-    max-width: 300px; /* Slightly larger max width */
+    width: 100%;
+    max-width: 300px; /* Increased max width for larger GIF */
     height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -163,6 +165,6 @@ input {
     }
 
     .gif-container img {
-        max-width: 80%; /* Slightly increased size on small screens */
+        max-width: 100%; /* Ensure GIF fits on smaller screens */
     }
 }
