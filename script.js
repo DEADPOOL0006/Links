@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Add event listeners to buttons
+    document.getElementById("calculateButton").addEventListener("click", calculateAttendance);
+    document.getElementById("resetButton").addEventListener("click", resetFields);
+});
+
 function calculateAttendance() {
     // Retrieve values from input fields and convert to numbers
     const lectureAttendance = parseFloat(document.getElementById("lectureAttendance").value) || null;
