@@ -20,7 +20,7 @@ body {
 
 /* Container styling */
 .container {
-    background-color: #ffffff;
+    background-color: #e0f7fa; /* Soft light blue background for the container */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,6 @@ body {
     position: relative;
     margin-bottom: 20px;
     border: 1px solid #ccc; /* Border around the box */
-    background-color: #e0f7fa; /* Soft light blue background for the container */
 }
 
 /* Heading styling */
@@ -68,14 +67,12 @@ input {
     color: white;
     font-size: 1.1em;
     margin-top: 15px;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease; /* Only box shadow transition */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(0); /* Initial position */
 }
 
 .calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px); /* Lift the button */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow without zoom */
 }
 
 .calculate-btn {
@@ -126,16 +123,8 @@ input {
     border-radius: 8px;
 }
 
-#belowGif {
-    display: none;
-}
-
-#aboveGif {
-    display: none;
-}
-
-/* Increased GIF size */
 #belowGif, #aboveGif, #whistleGif {
+    display: none;
     width: 150px;  /* Increase width */
     height: 150px; /* Increase height */
 }
