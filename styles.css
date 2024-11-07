@@ -11,9 +11,10 @@ body {
     overflow-y: auto;
 }
 
-/* Enable scrolling for mobile screens */
+/* Enable scrolling and center content for mobile screens */
 @media (max-width: 768px) {
     body {
+        padding: 20px; /* Add padding for mobile */
         overflow-y: auto;
     }
 }
@@ -24,7 +25,8 @@ body {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 100%; /* Adjust for mobile */
+    max-width: 500px; /* Maintain max width */
     text-align: center;
     position: relative;
     margin-bottom: 20px;
@@ -133,4 +135,3 @@ input[type="number"]:hover {
     height: 200px; /* Square shape */
     border-radius: 8px;
 }
-
