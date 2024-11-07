@@ -8,9 +8,7 @@ body {
     margin: 0;
     background-color: #f4f4f9;
     transition: background 0.5s ease;
-    flex-direction: column;
     overflow-y: auto;
-    padding: 0 20px; /* Adding padding for small screens */
 }
 
 /* Enable scrolling for mobile screens */
@@ -32,8 +30,6 @@ body {
     position: relative;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
-    overflow: auto; /* Enable scrolling inside the container if content overflows */
 }
 
 /* Heading styling */
@@ -150,6 +146,5 @@ input[type="number"]:hover {
     .container {
         width: 100%;
         padding: 15px;
-        margin-bottom: 20px; /* Adding space below for smaller screens */
     }
 }
