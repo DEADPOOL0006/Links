@@ -8,7 +8,9 @@ body {
     margin: 0;
     background-color: #f4f4f9;
     transition: background 0.5s ease;
+    flex-direction: column;
     overflow-y: auto;
+    padding: 0 20px; /* Adding padding for small screens */
 }
 
 /* Enable scrolling for mobile screens */
@@ -21,20 +23,23 @@ body {
 /* Container styling */
 .container {
     background-color: #e0f7fa;
-    padding: 40px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
     position: relative;
     margin-bottom: 20px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+    overflow: auto; /* Enable scrolling inside the container if content overflows */
 }
 
 /* Heading styling */
 h2 {
     color: #333;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 /* Label styling */
@@ -53,13 +58,13 @@ label:hover {
 
 /* Input fields styling */
 input {
-    width: 80%;
-    max-width: 400px;
-    padding: 15px;
-    margin-bottom: 15px;
+    width: 90%;
+    max-width: 350px;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1.2em;
+    font-size: 1em;
     box-sizing: border-box;
 }
 
@@ -71,13 +76,13 @@ input[type="number"]:hover {
 
 /* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 14px 30px;
+    padding: 10px 20px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -100,41 +105,44 @@ input[type="number"]:hover {
 #result {
     margin-top: 20px;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.2em;
     transition: color 0.3s ease;
 }
 
 .warning {
     color: orange;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .success {
     color: green;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .error {
     color: red;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
-/* GIF container styling */
+/* GIF container styling - hidden initially */
 .gif-container {
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
 
-/* Display GIFs at original size */
+/* Hide GIFs initially */
 .gif-container img {
-    display: none;
+    display: none; /* Initially hide GIFs */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     border-radius: 8px;
 }
 
-#belowGif, #aboveGif, #whistleGif {
-    width: auto; /* Automatically adjust to original width */
-    height: auto; /* Automatically adjust to original height */
+/* Show GIFs when result is populated */
+#result:not(:empty) ~ .gif-container img {
+    display: block; /* Show GIFs when #result has content */
 }
 
 /* Small screen adjustments */
@@ -142,5 +150,6 @@ input[type="number"]:hover {
     .container {
         width: 100%;
         padding: 15px;
+        margin-bottom: 20px; /* Adding space below for smaller screens */
     }
 }
