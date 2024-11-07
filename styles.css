@@ -4,11 +4,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensures that the body takes at least the full viewport height */
+    height: 100vh;
     margin: 0;
-    background-color: #f4f4f9; /* Light background color for the body */
+    background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow-y: auto; /* Enables scrolling for the entire page */
+    overflow: hidden; /* Hides overflow on larger screens */
 }
 
 /* Enable scrolling for mobile screens */
@@ -20,24 +20,19 @@ body {
 
 /* Container styling */
 .container {
-    background-color: #e0f7fa; /* Soft light blue background for the container */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: center;
     position: relative;
-    margin-bottom: 20px;
-    border: 1px solid #ccc; /* Border around the box */
 }
 
-/* Heading styling */
 h2 {
     color: #333;
-    font-size: 1.5em;
 }
 
-/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
@@ -54,7 +49,6 @@ input {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    box-sizing: border-box;
 }
 
 /* Button styling */
@@ -67,20 +61,22 @@ input {
     color: white;
     font-size: 1.1em;
     margin-top: 15px;
-    transition: box-shadow 0.3s ease; /* Only box shadow transition */
+    transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0); /* Initial position */
 }
 
 .calculate-btn:hover, .reset-btn:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow without zoom */
+    transform: translateY(-5px); /* Lift the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
 
 .calculate-btn {
-    background-color: #4CAF50; /* Green for Calculate button */
+    background-color: #4CAF50;
 }
 
 .reset-btn {
-    background-color: #f44336; /* Red for Reset button */
+    background-color: #f44336;
 }
 
 /* Result and messages */
@@ -123,24 +119,10 @@ input {
     border-radius: 8px;
 }
 
-#belowGif, #aboveGif, #whistleGif {
+#belowGif {
     display: none;
-    width: 150px;  /* Increase width */
-    height: 150px; /* Increase height */
 }
 
-/* Small screen adjustments */
-@media (max-width: 480px) {
-    .container {
-        width: 100%; /* Full width for smaller screens */
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 1.3em;
-    }
-
-    input {
-        width: 90%; /* Increase input width for smaller screens */
-    }
+#aboveGif {
+    display: none;
 }
