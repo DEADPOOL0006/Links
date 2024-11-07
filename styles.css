@@ -18,23 +18,26 @@ body {
     }
 }
 
-/* Container styling */
+/* Container styling - fixed in the middle */
 .container {
     background-color: #e0f7fa;
-    padding: 40px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
-    position: relative;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 1px solid #ccc;
 }
 
 /* Heading styling */
 h2 {
     color: #333;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 /* Label styling */
@@ -53,13 +56,13 @@ label:hover {
 
 /* Input fields styling */
 input {
-    width: 80%;
-    max-width: 400px;
-    padding: 15px;
-    margin-bottom: 15px;
+    width: 90%;
+    max-width: 350px;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1.2em;
+    font-size: 1em;
     box-sizing: border-box;
 }
 
@@ -71,13 +74,13 @@ input[type="number"]:hover {
 
 /* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 14px 30px;
+    padding: 10px 20px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -100,47 +103,65 @@ input[type="number"]:hover {
 #result {
     margin-top: 20px;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.2em;
     transition: color 0.3s ease;
 }
 
 .warning {
     color: orange;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .success {
     color: green;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .error {
     color: red;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
-/* GIF container styling */
+/* GIF container styling - hidden initially */
 .gif-container {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Vertically center the GIF */
+    visibility: hidden; /* Keep GIFs hidden by default */
+    opacity: 0; /* Set opacity to 0 for smooth transition */
+    transition: visibility 0s, opacity 0.5s ease;
 }
 
-/* Display GIFs at original size */
-.gif-container img {
-    display: none;
+/* Show GIFs when result is populated */
+#result:not(:empty) ~ .gif-container {
+    visibility: visible; /* Make GIFs visible when there is content in #result */
+    opacity: 1; /* Set opacity to 1 for full visibility */
+}
+
+/* Show GIFs when result is populated */
+#result:not(:empty) ~ .gif-container img {
+    display: block; /* Show GIFs when #result has content */
+    width: 100%;
+    max-width: 350px; /* Increased max width for larger GIF */
+    height: auto;
     border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-#belowGif, #aboveGif, #whistleGif {
-    width: auto; /* Automatically adjust to original width */
-    height: auto; /* Automatically adjust to original height */
+/* Optional: Add a hover effect to GIF for interaction */
+.gif-container img:hover {
+    transform: scale(1.03); /* Reduced zoom effect */
 }
 
-/* Small screen adjustments */
+/* Small screen adjustments - ensure the GIF still looks good */
 @media (max-width: 480px) {
     .container {
         width: 100%;
         padding: 15px;
+    }
+
+    .gif-container img {
+        max-width: 100%; /* Ensure GIF fits on smaller screens */
     }
 }
