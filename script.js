@@ -24,12 +24,13 @@ function calculateAttendance() {
     result.style.color = overallPercentage >= 85 ? "green" : "red";
     result.innerHTML = `<strong>Overall Attendance: ${overallPercentage.toFixed(2)}%</strong>`;
 
-    // Show relevant GIF based on attendance percentage
+    // Hide all GIFs initially
     belowGif.style.display = "none";
     mediumGif.style.display = "none";
     aboveGif.style.display = "none";
     whistleGif.style.display = "none";
 
+    // Show relevant GIF based on attendance percentage
     if (overallPercentage >= 90) {
         message.innerHTML = "<strong>Thaggedele💥</strong>";
         message.style.color = "blue";
@@ -40,30 +41,11 @@ function calculateAttendance() {
         aboveGif.style.display = "block";
     } else if (overallPercentage >= 60) {
         message.innerHTML = "<strong>Attendance Endi Tage Laga Undi</strong>";
-        message.style.color = "blue";  // Changed to blue
+        message.style.color = "blue";
         mediumGif.style.display = "block";
     } else {
         message.innerHTML = "<strong>Mava, Nuvu Classes Ki Vellali 😡</strong>";
-        message.style.color = "blue";  // Changed to blue
+        message.style.color = "blue";
         belowGif.style.display = "block";
     }
-}
-
-function resetFields() {
-    document.getElementById("lectureAttendance").value = '';
-    document.getElementById("tutorialAttendance").value = '';
-    document.getElementById("practicalAttendance").value = '';
-    document.getElementById("skillAttendance").value = '';
-    document.getElementById("result").innerHTML = '';
-    document.getElementById("message").innerHTML = '';
-
-    const belowGif = document.getElementById("belowGif");
-    const mediumGif = document.getElementById("mediumGif");
-    const aboveGif = document.getElementById("aboveGif");
-    const whistleGif = document.getElementById("whistleGif");
-
-    belowGif.style.display = "none";
-    mediumGif.style.display = "none";
-    aboveGif.style.display = "none";
-    whistleGif.style.display = "none";
 }
