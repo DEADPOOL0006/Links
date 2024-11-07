@@ -1,92 +1,62 @@
-/* General body styling */
-body {
+/* General Background Styling */
+body, html {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f4f4f9;
-    transition: background 0.5s ease;
-    overflow-y: auto;
+    height: 100vh;
 }
 
-/* Enable scrolling for mobile screens */
-@media (max-width: 768px) {
-    body {
-        overflow-y: auto;
-    }
-}
-
-/* Container styling */
+/* Centered Container */
 .container {
-    background-color: #ffffff;
-    padding: 40px;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    background-color: #e0f7fa;
-}
-
-/* Heading styling */
-h2 {
-    color: #333;
-    font-size: 1.8em;
-}
-
-/* Label styling */
-label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #555;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-/* Change text color on hover */
-label:hover {
-    color: #007bff;
-}
-
-/* Input fields styling */
-input {
-    width: 80%;
-    max-width: 400px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1.2em;
-    box-sizing: border-box;
-}
-
-/* Input fields hover effect */
-input[type="number"]:hover {
-    border-color: #007bff;
-    background-color: #f0f8ff;
-}
-
-/* Button styling */
-.calculate-btn, .reset-btn {
-    padding: 14px 30px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    color: white;
-    font-size: 1.2em;
-    margin-top: 15px;
-    transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
-.calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+/* Title Styling */
+.container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+/* Paragraph Styling */
+.container p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Input Field Styling */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
 }
 
 .calculate-btn {
@@ -97,51 +67,62 @@ input[type="number"]:hover {
     background-color: #f44336;
 }
 
-/* Result and messages */
-#result {
-    margin-top: 20px;
+/* Button Hover Effects */
+button:hover {
+    opacity: 0.9;
+}
+
+/* Result Message Styling */
+#result, #message {
     font-weight: bold;
-    font-size: 1.3em;
-    transition: color 0.3s ease;
+    margin-top: 15px;
+    font-size: 1.1rem;
 }
 
-.warning {
-    color: orange;
-    font-size: 1.2em;
-}
-
-.success {
-    color: green;
-    font-size: 1.2em;
-}
-
-.error {
-    color: red;
-    font-size: 1.2em;
-}
-
-/* GIF container styling */
+/* GIF Container Styling */
 .gif-container {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
 }
 
 .gif-container img {
-    display: none;
-    width: 300px; /* Increased width */
-    height: 300px; /* Set height to maintain square shape */
+    max-width: 100%;
     border-radius: 8px;
+    display: block;
+    margin: 10px auto;
 }
 
-#belowGif, #aboveGif, #whistleGif {
-    width: 300px; /* Increased width */
-    height: 300px; /* Increased height to maintain square shape */
-}
-
-/* Small screen adjustments */
-@media (max-width: 480px) {
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Adjust font sizes and padding for smaller screens */
     .container {
-        width: 100%;
         padding: 15px;
+        max-width: 90%;
     }
+    .container h2 {
+        font-size: 1.3rem;
+    }
+    input[type="number"], button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+    #result, #message {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for mobile */
+    .container {
+        padding: 10px;
+    }
+    .container h2 {
+        font-size: 1.2rem;
+    }
+    input[type="number"], button {
+        font-size: 0.85rem;
+        padding: 7px;
+    }
+    #result, #message {
+        font-size: 0.9rem;
+    }
+}
