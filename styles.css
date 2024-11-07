@@ -1,66 +1,87 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
-    overflow: hidden;
-    touch-action: none; /* Prevent zooming on mobile */
+    background-color: #f4f4f9;
+    transition: background 0.5s ease;
+    overflow-y: auto;
 }
 
+/* Enable scrolling for mobile screens */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+}
+
+/* Container styling */
 .container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    width: 350px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
     text-align: center;
     position: relative;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transform: scale(1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    background-color: #e0f7fa;
 }
 
-.container:hover {
-    transform: scale(1.05); /* Slightly zooms the box on hover */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Darker, bigger shadow */
-}
-
+/* Heading styling */
 h2 {
     color: #333;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    font-weight: bold;
+    font-size: 1.8em;
 }
 
+/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
+/* Change text color on hover */
+label:hover {
+    color: #007bff;
+}
+
+/* Input fields styling */
 input {
-    width: 100%;
-    padding: 8px;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1.2em;
     box-sizing: border-box;
 }
 
+/* Input fields hover effect */
+input[type="number"]:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+/* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 12px 20px;
+    padding: 14px 30px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #4CAF50;
 }
 
 .calculate-btn:hover, .reset-btn:hover {
@@ -68,28 +89,30 @@ input {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.calculate-btn {
+    background-color: #4CAF50;
+}
+
 .reset-btn {
     background-color: #f44336;
 }
 
+/* Result and messages */
 #result {
-    margin-top: 15px;
+    margin-top: 20px;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.3em;
     transition: color 0.3s ease;
 }
 
 .warning {
     color: orange;
     font-size: 1.2em;
-    margin-top: 15px;
-    font-weight: bold;
 }
 
 .success {
     color: green;
     font-size: 1.2em;
-    font-weight: bold;
 }
 
 .error {
@@ -97,6 +120,7 @@ input {
     font-size: 1.2em;
 }
 
+/* GIF container styling */
 .gif-container {
     margin-top: 20px;
     display: flex;
@@ -105,15 +129,19 @@ input {
 
 .gif-container img {
     display: none;
-    width: 50%;
-    max-width: 150px;
+    width: 300px; /* Increased width */
+    height: 300px; /* Set height to maintain square shape */
     border-radius: 8px;
 }
 
-#belowGif {
-    display: none;
+#belowGif, #aboveGif, #whistleGif {
+    width: 300px; /* Increased width */
+    height: 300px; /* Increased height to maintain square shape */
 }
 
-#aboveGif {
-    display: none;
-}
+/* Small screen adjustments */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
