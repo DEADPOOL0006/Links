@@ -10,65 +10,6 @@
         #belowGif, #aboveGif, #whistleGif, #midRangeGif, #workHardGif, #below69Gif {
             width: 150px;
             height: 150px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Apply left offset to the below69Gif */
-        #below69Gif {
-            transform: translateX(-35px); /* Adjust value to move left */
-        }
-
-        /* Styling the container */
-        .container {
-            background-color: #e0f7fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            overflow: auto;
-        }
-
-        /* Apply flexbox layout to body for centering */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0 20px;
-            background-color: #f4f4f9;
-        }
-
-        /* Style inputs and buttons */
-        input, button {
-            width: 90%;
-            max-width: 350px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        /* Adjust button style */
-        button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-
-        /* Responsiveness for smaller screens */
-        @media (max-width: 768px) {
-            .container {
-                width: 100%;
-                padding: 10px;
-            }
         }
     </style>
 </head>
@@ -97,81 +38,22 @@
             
             <p id="result"></p>
             <p id="message" class="success"></p>
+            
 
             <!-- GIFs for Attendance Feedback -->
             <div class="gif-container">
-                <img id="belowGif" src="https://media1.tenor.com/m/txVq4SBENycAAAAC/crying-cry.gif?cid=6c09b9520rf2s0czmrpzvdba2dh4eewhf746rjip7dv72nf2&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Below 50% GIF" style="display:none;">
+                <img id="belowGif" src="https://media2.giphy.com/media/ptntNCl7nwQqk/giphy.gif?cid=6c09b9520rf2s0czmrpzvdba2dh4eewhf746rjip7dv72nf2&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Below 50% GIF" style="display:none;">
                 <img id="workHardGif" src="https://media.tenor.com/3gJMN5LnN6YAAAAC/work-harder.gif" alt="50-69% GIF" style="display:none;">
                 <img id="midRangeGif" src="https://media1.tenor.com/m/dR4EvI-fe70AAAAC/edho-thedaga-vundenti-brahmi.gif" alt="70 to 84% GIF" style="display:none;">
                 <img id="aboveGif" src="https://media1.tenor.com/m/NJOcESg6x5wAAAAC/i-am-safe-prabhas.gif" alt="Above 85% GIF" style="display:none;">
                 <img id="whistleGif" src="https://media.tenor.com/3Y5tIYMfU5AAAAAC/whistle-krishna.gif" alt="90+% GIF" style="display:none;">
-                <!-- New GIF for attendance between 50% and 69% -->
-                <img id="below69Gif" src="https://media1.tenor.com/m/yk24L0aU7ugAAAAC/gudumba-shankar-brahmi.gif" alt="50-69% GIF" style="display:none;">
+                
+                <!-- New GIF for 50-69% Attendance -->
+                <img id="below69Gif" src="https://media1.tenor.com/images/abcde12345/tenor.gif" alt="50-69% GIF" style="display:none;">
             </div>
         </div>
     </div>
 
-    <script>
-        function calculateAttendance() {
-            // Get input values
-            const lectureAttendance = parseFloat(document.getElementById('lectureAttendance').value);
-            const tutorialAttendance = parseFloat(document.getElementById('tutorialAttendance').value);
-            const practicalAttendance = parseFloat(document.getElementById('practicalAttendance').value);
-            const skillAttendance = parseFloat(document.getElementById('skillAttendance').value);
-            
-            // Calculate overall attendance percentage
-            const overallAttendance = (lectureAttendance + tutorialAttendance + practicalAttendance + skillAttendance) / 4;
-
-            // Display the result
-            document.getElementById('result').textContent = `Overall Attendance: ${overallAttendance.toFixed(2)}%`;
-
-            // Reset the message
-            document.getElementById('message').textContent = "";
-
-            // Hide all GIFs initially
-            hideAllGIFs();
-
-            // Show relevant GIF based on attendance percentage
-            if (overallAttendance < 50) {
-                document.getElementById('belowGif').style.display = 'block';
-                document.getElementById('message').textContent = "Your attendance is below 50%. Please work harder!";
-            } else if (overallAttendance >= 50 && overallAttendance < 70) {
-                document.getElementById('below69Gif').style.display = 'block';
-                document.getElementById('message').textContent = "Your attendance is between 50% and 69%. Keep improving!";
-            } else if (overallAttendance >= 70 && overallAttendance < 85) {
-                document.getElementById('midRangeGif').style.display = 'block';
-                document.getElementById('message').textContent = "Your attendance is between 70% and 84%. Good job!";
-            } else if (overallAttendance >= 85 && overallAttendance < 90) {
-                document.getElementById('aboveGif').style.display = 'block';
-                document.getElementById('message').textContent = "Your attendance is above 85%. Excellent!";
-            } else {
-                document.getElementById('whistleGif').style.display = 'block';
-                document.getElementById('message').textContent = "Your attendance is over 90%! Keep up the great work!";
-            }
-        }
-
-        // Hide all GIFs
-        function hideAllGIFs() {
-            document.getElementById('belowGif').style.display = 'none';
-            document.getElementById('workHardGif').style.display = 'none';
-            document.getElementById('midRangeGif').style.display = 'none';
-            document.getElementById('aboveGif').style.display = 'none';
-            document.getElementById('whistleGif').style.display = 'none';
-            document.getElementById('below69Gif').style.display = 'none';
-        }
-
-        function resetFields() {
-            // Reset input fields and results
-            document.getElementById('lectureAttendance').value = "";
-            document.getElementById('tutorialAttendance').value = "";
-            document.getElementById('practicalAttendance').value = "";
-            document.getElementById('skillAttendance').value = "";
-            document.getElementById('result').textContent = "";
-            document.getElementById('message').textContent = "";
-
-            // Hide all GIFs
-            hideAllGIFs();
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
