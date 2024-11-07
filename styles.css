@@ -125,26 +125,41 @@ input[type="number"]:hover {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Vertically center the GIF */
+    visibility: hidden; /* Keep GIFs hidden by default */
+    opacity: 0; /* Set opacity to 0 for smooth transition */
+    transition: visibility 0s, opacity 0.5s ease;
 }
 
-/* Hide GIFs initially */
-.gif-container img {
-    display: none; /* Initially hide GIFs */
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
+/* Show GIFs when result is populated */
+#result:not(:empty) ~ .gif-container {
+    visibility: visible; /* Make GIFs visible when there is content in #result */
+    opacity: 1; /* Set opacity to 1 for full visibility */
 }
 
 /* Show GIFs when result is populated */
 #result:not(:empty) ~ .gif-container img {
     display: block; /* Show GIFs when #result has content */
+    width: 100%;
+    max-width: 500px; /* Increase the max width of the GIF */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-/* Small screen adjustments */
+/* Optional: Add a hover effect to GIF for interaction */
+.gif-container img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+/* Small screen adjustments - ensure the GIF still looks good */
 @media (max-width: 480px) {
     .container {
         width: 100%;
         padding: 15px;
+    }
+
+    .gif-container img {
+        max-width: 100%; /* Ensure GIF fits on smaller screens */
     }
 }
