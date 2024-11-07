@@ -20,7 +20,7 @@ body {
 
 /* Container styling */
 .container {
-    background-color: #ffffff;
+    background-color: #e0f7fa;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,6 @@ body {
     position: relative;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    background-color: #e0f7fa;
 }
 
 /* Heading styling */
@@ -127,16 +126,15 @@ input[type="number"]:hover {
     justify-content: center;
 }
 
+/* Display GIFs at original size */
 .gif-container img {
     display: none;
-    width: 300px; /* Increased width */
-    height: 300px; /* Set height to maintain square shape */
     border-radius: 8px;
 }
 
 #belowGif, #aboveGif, #whistleGif {
-    width: 300px; /* Increased width */
-    height: 300px; /* Increased height to maintain square shape */
+    width: auto; /* Automatically adjust to original width */
+    height: auto; /* Automatically adjust to original height */
 }
 
 /* Small screen adjustments */
@@ -145,3 +143,4 @@ input[type="number"]:hover {
         width: 100%;
         padding: 15px;
     }
+}
