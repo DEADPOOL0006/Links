@@ -1,128 +1,127 @@
-/* Body and container styles */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    background-color: #ffffff;
+    background-color: #f4f4f9;
     transition: background 0.5s ease;
-    overflow: auto; /* Enable scrolling when content overflows */
-    touch-action: none; /* Prevents zooming on mobile */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 0 20px; /* Adding padding for small screens */
 }
 
+/* Enable scrolling for mobile screens */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+}
+
+/* Container styling */
 .container {
-    background-color: #ffffff;
+    background-color: #e0f7fa;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
     position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    overflow: auto; /* Enable scrolling inside the container if content overflows */
 }
 
-/* Title and input styling */
+/* Heading styling */
 h2 {
     color: #333;
+    font-size: 1.5em;
 }
 
+/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* 3D Popup effect for "Enter Attendance" button */
-.calculate-btn {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    color: white;
-    font-size: 1.1em;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Initial 3D shadow */
-    background-color: #4CAF50;
-    transform: translateY(0); /* Initial position */
-    position: relative;
-}
-
-.calculate-btn:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
-    transform: translateY(-8px) scale(1.1); /* Lift the button and slightly scale */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-}
-
-.calculate-btn:active {
-    transform: translateY(4px) scale(1); /* Button pressed down with slight scaling */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when clicked */
-}
-
-/* Reset Button Style */
-.reset-btn {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    color: white;
-    font-size: 1.1em;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Initial 3D shadow */
-    background-color: #f44336;
-    transform: translateY(0); /* Initial position */
-    position: relative;
-}
-
-.reset-btn:hover {
-    background-color: #e53935; /* Slightly darker red on hover */
-    transform: translateY(-8px) scale(1.1); /* Lift the button and slightly scale */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-}
-
-.reset-btn:active {
-    transform: translateY(4px) scale(1); /* Button pressed down with slight scaling */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when clicked */
-}
-
-/* Result Text */
-#result {
-    margin-top: 15px;
     font-weight: bold;
-    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
-/* Warning, Success, and Error Messages */
+/* Change text color on hover */
+label:hover {
+    color: #007bff;
+}
+
+/* Input fields styling */
+input {
+    width: 90%;
+    max-width: 350px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Input fields hover effect */
+input[type="number"]:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+/* Button styling */
+.calculate-btn, .reset-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    font-size: 1em;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calculate-btn:hover, .reset-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.calculate-btn {
+    background-color: #4CAF50;
+}
+
+.reset-btn {
+    background-color: #f44336;
+}
+
+/* Result and messages */
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
 .warning {
     color: orange;
-    font-size: 1.2em;
-    margin-top: 15px;
-    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .success {
     color: green;
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .error {
     color: red;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 /* GIF container styling - hidden initially */
@@ -130,41 +129,27 @@ input {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Vertically center the GIF */
-    visibility: hidden; /* Keep GIFs hidden by default */
-    opacity: 0; /* Set opacity to 0 for smooth transition */
-    transition: visibility 0s, opacity 0.5s ease;
 }
 
-/* Show GIFs when result is populated */
-#result:not(:empty) ~ .gif-container {
-    visibility: visible; /* Make GIFs visible when there is content in #result */
-    opacity: 1; /* Set opacity to 1 for full visibility */
+/* Hide GIFs initially */
+.gif-container img {
+    display: none; /* Initially hide GIFs */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Show GIFs when result is populated */
 #result:not(:empty) ~ .gif-container img {
     display: block; /* Show GIFs when #result has content */
-    width: 100%;
-    max-width: 300px; /* Increased max width for larger GIF */
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
 }
 
-/* Optional: Add a hover effect to GIF for interaction */
-.gif-container img:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Small screen adjustments - ensure the GIF still looks good */
+/* Small screen adjustments */
 @media (max-width: 480px) {
     .container {
         width: 100%;
         padding: 15px;
-    }
-
-    .gif-container img {
-        max-width: 100%; /* Ensure GIF fits on smaller screens */
+        margin-bottom: 20px; /* Adding space below for smaller screens */
     }
 }
