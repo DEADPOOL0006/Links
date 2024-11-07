@@ -1,121 +1,118 @@
-/* Body and container styles */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    background-color: #ffffff;
+    background-color: #f4f4f9;
     transition: background 0.5s ease;
-    overflow: hidden;
-    touch-action: none; /* Prevents zooming on mobile */
+    overflow-y: auto;
 }
 
+/* Enable scrolling for mobile screens */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+}
+
+/* Container styling */
 .container {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 500px;
     text-align: center;
     position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    background-color: #e0f7fa;
 }
 
-/* Title and input styling */
+/* Heading styling */
 h2 {
     color: #333;
+    font-size: 1.8em;
 }
 
+/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* 3D Popup effect for "Enter Attendance" button */
-.calculate-btn {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    color: white;
-    font-size: 1.1em;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Initial 3D shadow */
-    background-color: #4CAF50;
-    transform: translateY(0); /* Initial position */
-    position: relative;
-}
-
-.calculate-btn:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
-    transform: translateY(-8px) scale(1.1); /* Lift the button and slightly scale */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-}
-
-.calculate-btn:active {
-    transform: translateY(4px) scale(1); /* Button pressed down with slight scaling */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when clicked */
-}
-
-/* Reset Button Style */
-.reset-btn {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    color: white;
-    font-size: 1.1em;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #f44336;
-}
-
-.reset-btn:hover {
-    background-color: #e53935; /* Slightly darker red on hover */
-    transform: translateY(-6px); /* Lift the button */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Larger shadow */
-}
-
-.reset-btn:active {
-    transform: translateY(2px); /* Button "pressed" effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow on click */
-}
-
-/* Result Text */
-#result {
-    margin-top: 15px;
     font-weight: bold;
-    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
-/* Warning, Success, and Error Messages */
+/* Change text color on hover */
+label:hover {
+    color: #007bff;
+}
+
+/* Input fields styling */
+input {
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
+
+/* Input fields hover effect */
+input[type="number"]:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+/* Button styling */
+.calculate-btn, .reset-btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    font-size: 1.2em;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calculate-btn:hover, .reset-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.calculate-btn {
+    background-color: #4CAF50;
+}
+
+.reset-btn {
+    background-color: #f44336;
+}
+
+/* Result and messages */
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
 .warning {
     color: orange;
     font-size: 1.2em;
-    margin-top: 15px;
-    font-weight: bold;
 }
 
 .success {
     color: green;
     font-size: 1.2em;
-    
-    font-weight: bold;
 }
 
 .error {
@@ -123,7 +120,7 @@ input {
     font-size: 1.2em;
 }
 
-/* GIF Container */
+/* GIF container styling */
 .gif-container {
     margin-top: 20px;
     display: flex;
@@ -132,16 +129,19 @@ input {
 
 .gif-container img {
     display: none;
-    width: 50%; /* Adjust size of the GIF */
-    max-width: 150px; /* Limit maximum size of the GIF */
+    width: 300px; /* Increased width */
+    height: 300px; /* Set height to maintain square shape */
     border-radius: 8px;
 }
 
-/* Hidden GIF elements */
-#belowGif {
-    display: none;
+#belowGif, #aboveGif, #whistleGif {
+    width: 300px; /* Increased width */
+    height: 300px; /* Increased height to maintain square shape */
 }
 
-#aboveGif {
-    display: none;
-}
+/* Small screen adjustments */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
