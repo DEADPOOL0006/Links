@@ -18,7 +18,7 @@ body {
     }
 }
 
-/* Container styling */
+/* Container styling - fixed in the middle */
 .container {
     background-color: #e0f7fa;
     padding: 20px;
@@ -27,8 +27,10 @@ body {
     width: 90%;
     max-width: 400px;
     text-align: center;
-    position: relative;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 1px solid #ccc;
 }
 
@@ -141,7 +143,7 @@ input[type="number"]:hover {
 #result:not(:empty) ~ .gif-container img {
     display: block; /* Show GIFs when #result has content */
     width: 100%;
-    max-width: 500px; /* Increase the max width of the GIF */
+    max-width: 350px; /* Increased max width for larger GIF */
     height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -149,7 +151,7 @@ input[type="number"]:hover {
 
 /* Optional: Add a hover effect to GIF for interaction */
 .gif-container img:hover {
-    transform: scale(1.05); /* Slight zoom-in effect on hover */
+    transform: scale(1.03); /* Reduced zoom effect */
 }
 
 /* Small screen adjustments - ensure the GIF still looks good */
