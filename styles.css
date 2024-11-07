@@ -1,125 +1,126 @@
-/* General body styling */
+/* Body and container styles */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     transition: background 0.5s ease;
-    overflow-y: auto;
+    overflow: auto; /* Enable scrolling when content overflows */
+    touch-action: none; /* Prevents zooming on mobile */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Enable scrolling for mobile screens */
-@media (max-width: 768px) {
-    body {
-        overflow-y: auto;
-    }
-}
-
-/* Container styling - fixed in the middle */
 .container {
-    background-color: #e0f7fa;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
+    width: 350px;
     text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
+    position: relative;
 }
 
-/* Heading styling */
+/* Title and input styling */
 h2 {
     color: #333;
-    font-size: 1.5em;
 }
 
-/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-/* Change text color on hover */
-label:hover {
-    color: #007bff;
-}
-
-/* Input fields styling */
 input {
-    width: 90%;
-    max-width: 350px;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box;
 }
 
-/* Input fields hover effect */
-input[type="number"]:hover {
-    border-color: #007bff;
-    background-color: #f0f8ff;
-}
-
-/* Button styling */
-.calculate-btn, .reset-btn {
-    padding: 10px 20px;
+/* 3D Popup effect for "Enter Attendance" button */
+.calculate-btn {
+    padding: 15px 25px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1em;
+    font-size: 1.1em;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Initial 3D shadow */
+    background-color: #4CAF50;
+    transform: translateY(0); /* Initial position */
+    position: relative;
+}
+
+.calculate-btn:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: translateY(-8px) scale(1.1); /* Lift the button and slightly scale */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+.calculate-btn:active {
+    transform: translateY(4px) scale(1); /* Button pressed down with slight scaling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when clicked */
+}
+
+/* Reset Button Style */
+.reset-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    font-size: 1.1em;
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.calculate-btn:hover, .reset-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.calculate-btn {
-    background-color: #4CAF50;
-}
-
-.reset-btn {
     background-color: #f44336;
 }
 
-/* Result and messages */
+.reset-btn:hover {
+    background-color: #e53935; /* Slightly darker red on hover */
+    transform: translateY(-6px); /* Lift the button */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Larger shadow */
+}
+
+.reset-btn:active {
+    transform: translateY(2px); /* Button "pressed" effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow on click */
+}
+
+/* Result Text */
 #result {
-    margin-top: 20px;
+    margin-top: 15px;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
+/* Warning, Success, and Error Messages */
 .warning {
     color: orange;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 .success {
     color: green;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .error {
     color: red;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 /* GIF container styling - hidden initially */
@@ -142,8 +143,8 @@ input[type="number"]:hover {
 /* Show GIFs when result is populated */
 #result:not(:empty) ~ .gif-container img {
     display: block; /* Show GIFs when #result has content */
-    width: 100%;
-    max-width: 350px; /* Increased max width for larger GIF */
+    width: 80%; /* Slightly larger width */
+    max-width: 300px; /* Slightly larger max width */
     height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -151,7 +152,7 @@ input[type="number"]:hover {
 
 /* Optional: Add a hover effect to GIF for interaction */
 .gif-container img:hover {
-    transform: scale(1.03); /* Reduced zoom effect */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Small screen adjustments - ensure the GIF still looks good */
@@ -162,6 +163,6 @@ input[type="number"]:hover {
     }
 
     .gif-container img {
-        max-width: 100%; /* Ensure GIF fits on smaller screens */
+        max-width: 80%; /* Slightly increased size on small screens */
     }
 }
