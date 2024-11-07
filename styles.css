@@ -1,94 +1,66 @@
-/* General body styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
-    background-image: url('your-background-image.jpg'); /* Fixed background image */
-    background-size: cover; /* Ensure the background covers the screen */
-    background-attachment: fixed; /* Make the background fixed */
-    background-position: center;
-    transition: background 0.5s ease;
-    overflow-y: auto;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    touch-action: none; /* Prevent zooming on mobile */
 }
 
-/* Enable scrolling for mobile screens */
-@media (max-width: 768px) {
-    body {
-        overflow-y: auto;
-    }
-}
-
-/* Container styling - fixed in the middle */
 .container {
-    background-color: #e0f7fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
     text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-    z-index: 1; /* Ensure the container stays on top */
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Heading styling */
+.container:hover {
+    transform: scale(1.05); /* Slightly zooms the box on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Darker, bigger shadow */
+}
+
 h2 {
     color: #333;
     font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
-    font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-/* Change text color on hover */
-label:hover {
-    color: #007bff;
-}
-
-/* Input fields styling */
 input {
-    width: 90%;
-    max-width: 350px;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1em;
     box-sizing: border-box;
 }
 
-/* Input fields hover effect */
-input[type="number"]:hover {
-    border-color: #007bff;
-    background-color: #f0f8ff;
-}
-
-/* Button styling */
 .calculate-btn, .reset-btn {
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
     color: white;
-    font-size: 1em;
+    font-size: 1.1em;
     margin-top: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #4CAF50;
 }
 
 .calculate-btn:hover, .reset-btn:hover {
@@ -96,77 +68,52 @@ input[type="number"]:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.calculate-btn {
-    background-color: #4CAF50;
-}
-
 .reset-btn {
     background-color: #f44336;
 }
 
-/* Result and messages */
 #result {
-    margin-top: 20px;
+    margin-top: 15px;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
 .warning {
     color: orange;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 .success {
     color: green;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .error {
     color: red;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
-/* GIF container styling - hidden initially */
 .gif-container {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Vertically center the GIF */
-    visibility: hidden; /* Keep GIFs hidden by default */
-    opacity: 0; /* Set opacity to 0 for smooth transition */
-    transition: visibility 0s, opacity 0.5s ease;
 }
 
-/* Show GIFs when result is populated */
-#result:not(:empty) ~ .gif-container {
-    visibility: visible; /* Make GIFs visible when there is content in #result */
-    opacity: 1; /* Set opacity to 1 for full visibility */
-}
-
-/* Show GIFs when result is populated */
-#result:not(:empty) ~ .gif-container img {
-    display: block; /* Show GIFs when #result has content */
-    width: 100%;
-    max-width: 350px; /* Increased max width for larger GIF */
-    height: auto;
+.gif-container img {
+    display: none;
+    width: 50%;
+    max-width: 150px;
     border-radius: 8px;
-    transition: transform 0.3s ease;
 }
 
-/* Optional: Add a hover effect to GIF for interaction */
-.gif-container img:hover {
-    transform: scale(1.03); /* Reduced zoom effect */
+#belowGif {
+    display: none;
 }
 
-/* Small screen adjustments - ensure the GIF still looks good */
-@media (max-width: 480px) {
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .gif-container img {
-        max-width: 100%; /* Ensure GIF fits on smaller screens */
-    }
+#aboveGif {
+    display: none;
 }
