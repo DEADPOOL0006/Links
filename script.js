@@ -7,10 +7,10 @@ function calculateAttendance() {
     const result = document.getElementById("result");
     const message = document.getElementById("message");
     const belowGif = document.getElementById("belowGif");
-    const mediumGif = document.getElementById("mediumGif");
     const aboveGif = document.getElementById("aboveGif");
     const whistleGif = document.getElementById("whistleGif");
 
+    // Filter out null attendance values
     const attendanceValues = [lectureAttendance, tutorialAttendance, practicalAttendance, skillAttendance].filter(value => value !== null);
 
     if (attendanceValues.length === 0) {
@@ -19,6 +19,7 @@ function calculateAttendance() {
         return;
     }
 
+    // Calculate overall attendance percentage
     const overallPercentage = attendanceValues.reduce((sum, value) => sum + value, 0) / attendanceValues.length;
 
     result.style.color = overallPercentage >= 85 ? "green" : "red";
@@ -26,7 +27,6 @@ function calculateAttendance() {
 
     // Hide all GIFs initially
     belowGif.style.display = "none";
-    mediumGif.style.display = "none";
     aboveGif.style.display = "none";
     whistleGif.style.display = "none";
 
@@ -42,10 +42,22 @@ function calculateAttendance() {
     } else if (overallPercentage >= 60) {
         message.innerHTML = "<strong>Attendance Endi Tage Laga Undi</strong>";
         message.style.color = "blue";
-        mediumGif.style.display = "block";
     } else {
         message.innerHTML = "<strong>Mava, Nuvu Classes Ki Vellali 😡</strong>";
         message.style.color = "blue";
         belowGif.style.display = "block";
     }
+}
+
+// Reset fields function
+function resetFields() {
+    document.getElementById("lectureAttendance").value = '';
+    document.getElementById("tutorialAttendance").value = '';
+    document.getElementById("practicalAttendance").value = '';
+    document.getElementById("skillAttendance").value = '';
+    document.getElementById("result").innerHTML = '';
+    document.getElementById("message").innerHTML = '';
+    document.getElementById("belowGif").style.display = "none";
+    document.getElementById("aboveGif").style.display = "none";
+    document.getElementById("whistleGif").style.display = "none";
 }
