@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=3, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3, user-scalable=yes">
     <title>L-T-P-S Attendance Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Increased GIF size */
+        #belowGif, #aboveGif, #whistleGif {
+            width: 150px;  /* Increase width */
+            height: 150px; /* Increase height */
+        }
+    </style>
 </head>
 <body>
     <div class="background">
@@ -13,6 +21,7 @@
 
             <!-- Input Fields with Spinner Controls -->
             <label for="lectureAttendance"><strong>Lecture Attendance %:</strong></label>
+           
             <input type="number" id="lectureAttendance" placeholder="Enter attendance for lectures" min="0" max="100" step="1">
             
             <label for="tutorialAttendance"><strong>Tutorial Attendance %:</strong></label>
