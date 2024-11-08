@@ -27,7 +27,6 @@ body, html {
     max-width: 400px;
     width: 90%;
     text-align: center;
-    /* Center container on screen */
     margin: auto;
 }
 
@@ -88,16 +87,50 @@ button:hover {
     font-size: 1.1rem;
 }
 
-/* GIF Container Styling */
+/* GIF container styling - hidden initially */
 .gif-container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center the GIF */
+    visibility: hidden; /* Keep GIFs hidden by default */
+    opacity: 0; /* Set opacity to 0 for smooth transition */
+    transition: visibility 0s, opacity 0.5s ease;
 }
 
-.gif-container img {
-    max-width: 100%;
+/* Show GIFs when result is populated */
+#result:not(:empty) ~ .gif-container {
+    visibility: visible; /* Make GIFs visible when there is content in #result */
+    opacity: 1; /* Set opacity to 1 for full visibility */
+}
+
+/* Show GIFs when result is populated */
+#result:not(:empty) ~ .gif-container img {
+    display: block; /* Show GIFs when #result has content */
+    width: auto; /* Maintain original GIF width */
+    max-width: 350px; /* Increased max width for larger GIF */
+    height: auto; /* Maintain original GIF height */
     border-radius: 8px;
-    display: block;
-    margin: 10px auto;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Add a hover effect to GIF for interaction */
+.gif-container img:hover {
+    transform: scale(1.03); /* Reduced zoom effect */
+}
+
+/* Small screen adjustments - ensure the GIF still looks good */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .gif-container img {
+        width: 100%; /* Ensure GIF fits on smaller screens */
+        max-width: 100%; /* Ensure GIF doesn't overflow container */
+        height: auto; /* Maintain aspect ratio */
+    }
 }
 
 /* Mobile Responsive Adjustments */
@@ -105,7 +138,6 @@ button:hover {
     .container {
         padding: 15px;
         max-width: 90%;
-        /* This will ensure container is centered and prevents excessive zoom */
     }
 
     h2 {
