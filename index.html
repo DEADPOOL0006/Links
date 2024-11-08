@@ -12,14 +12,9 @@
             height: 150px;
         }
 
-        /* Scrollable container for input fields and buttons */
-        .scrollable-box {
-            max-height: 400px; /* Adjust height as needed */
-            overflow-y: auto;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 8px;
+        /* Only allow up and down scrolling */
+        body {
+            overflow-x: hidden; /* Disable horizontal scrolling */
         }
     </style>
 </head>
@@ -29,26 +24,23 @@
             <h2><strong>L-T-P-S Attendance Calculator</strong></h2>
             <p><strong>Input attendance details for overall calculation.</strong></p>
 
-            <!-- Scrollable container -->
-            <div class="scrollable-box">
-                <!-- Input Fields with Spinner Controls -->
-                <label for="lectureAttendance"><strong>Lecture Attendance %:</strong></label>
-                <input type="number" id="lectureAttendance" placeholder="Enter attendance for lectures" min="0" max="100" step="1">
-                
-                <label for="tutorialAttendance"><strong>Tutorial Attendance %:</strong></label>
-                <input type="number" id="tutorialAttendance" placeholder="Enter attendance for tutorials" min="0" max="100" step="1">
+            <!-- Input Fields with Spinner Controls -->
+            <label for="lectureAttendance"><strong>Lecture Attendance %:</strong></label>
+            <input type="number" id="lectureAttendance" placeholder="Enter attendance for lectures" min="0" max="100" step="1">
+            
+            <label for="tutorialAttendance"><strong>Tutorial Attendance %:</strong></label>
+            <input type="number" id="tutorialAttendance" placeholder="Enter attendance for tutorials" min="0" max="100" step="1">
 
-                <label for="practicalAttendance"><strong>Practical Attendance %:</strong></label>
-                <input type="number" id="practicalAttendance" placeholder="Enter attendance for practicals" min="0" max="100" step="1">
+            <label for="practicalAttendance"><strong>Practical Attendance %:</strong></label>
+            <input type="number" id="practicalAttendance" placeholder="Enter attendance for practicals" min="0" max="100" step="1">
 
-                <label for="skillAttendance"><strong>Skill Attendance %:</strong></label>
-                <input type="number" id="skillAttendance" placeholder="Enter attendance for skills" min="0" max="100" step="1">
-                
-                <!-- Buttons -->
-                <button class="calculate-btn" onclick="calculateAttendance()">Calculate Overall Attendance</button>
-                <button class="reset-btn" id="resetButton" onclick="resetFields()">Reset Fields</button>
-            </div>
-
+            <label for="skillAttendance"><strong>Skill Attendance %:</strong></label>
+            <input type="number" id="skillAttendance" placeholder="Enter attendance for skills" min="0" max="100" step="1">
+            
+            <!-- Buttons -->
+            <button class="calculate-btn" onclick="calculateAttendance()">Calculate Overall Attendance</button>
+            <button class="reset-btn" id="resetButton" onclick="resetFields()">Reset Fields</button>
+            
             <p id="result"></p>
             <p id="message" class="success"></p>
 
