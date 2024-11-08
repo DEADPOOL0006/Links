@@ -2,19 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=3, user-scalable=yes">
     <title>L-T-P-S Attendance Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Increased GIF size for improved visibility */
+        /* Increased GIF size */
         #belowGif, #aboveGif, #whistleGif, #midRangeGif, #workHardGif, #below69Gif {
             width: 150px;
             height: 150px;
         }
 
-        /* Only allow up and down scrolling */
-        body {
-            overflow-x: hidden; /* Disable horizontal scrolling */
+        /* Scroll button style */
+        #scrollButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none; /* Hidden initially */
+        }
+
+        #scrollButton:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -43,6 +57,7 @@
             
             <p id="result"></p>
             <p id="message" class="success"></p>
+            
 
             <!-- GIFs for Attendance Feedback -->
             <div class="gif-container">
@@ -51,11 +66,36 @@
                 <img id="midRangeGif" src="https://media1.tenor.com/m/dR4EvI-fe70AAAAC/edho-thedaga-vundenti-brahmi.gif" alt="70 to 84% GIF" style="display:none;">
                 <img id="aboveGif" src="https://media1.tenor.com/m/NJOcESg6x5wAAAAC/i-am-safe-prabhas.gif" alt="Above 85% GIF" style="display:none;">
                 <img id="whistleGif" src="https://media.tenor.com/3Y5tIYMfU5AAAAAC/whistle-krishna.gif" alt="90+% GIF" style="display:none;">
+                
+                <!-- New GIF for 50-69% Attendance -->
                 <img id="below69Gif" src="https://media1.tenor.com/images/abcde12345/tenor.gif" alt="50-69% GIF" style="display:none;">
             </div>
         </div>
     </div>
 
+    <!-- Scroll to Bottom Button -->
+    <button id="scrollButton" onclick="scrollToBottom()">↓</button>
+
     <script src="script.js"></script>
+
+    <script>
+        // Function to scroll to the bottom of the page
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show or hide the scroll button based on scroll position
+        window.onscroll = function() {
+            var button = document.getElementById("scrollButton");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block"; // Show button after scrolling
+            } else {
+                button.style.display = "none"; // Hide button at the top
+            }
+        };
+    </script>
 </body>
 </html>
