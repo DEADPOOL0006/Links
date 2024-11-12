@@ -43,7 +43,7 @@ function calculateAttendance() {
         message.style.color = "blue";
         aboveGif.style.display = "block";
     } else if (overallPercentage >= 70) {
-        message.innerHTML = "<strong>Attendance Endi Tage Laga Undi</strong>";
+        message.innerHTML = "<strong>Attendance Endi Tagge Laga Undi</strong>";
         message.style.color = "blue";
         midRangeGif.style.display = "block";
     } else if (overallPercentage >= 50) {
